@@ -1,40 +1,44 @@
-<h1>1. Title: Echocardiogram Data</h1>
-
+<h1>Statistical analytics of medical data of the patients that suffered heart attack
+<h2>1. Title: Echocardiogram Data</h1>
 <h2>2. Source Information:</h1>
    <p>-- Donor: Steven Salzberg (salzberg@cs.jhu.edu)</p>
   <p>-- Collector:</p>
   <ul>
-      <li>-- Dr. Evlin Kinney</li>
-      <li>-- The Reed Institute</li>
-      <li>-- P.O. Box 402603</li>
-      <li>-- Maimi, FL 33140-0603</li>
+      <li>Dr. Evlin Kinney</li>
+      <li>The Reed Institute</li>
+      <li>P.O. Box 402603</li>
+      <li>Maimi, FL 33140-0603</li>
    </ul>
    <p>-- Date Received: 28 February 1989</p>
 
 <h2>3. Past Usage:</h2>
-   <p>-- 1. Salzberg, S. (1988).  Exemplar-based learning: Theory and
+<ul>
+   <li>>Salzberg, S. (1988).  Exemplar-based learning: Theory and
          implementation (Technical Report TR-10-88).  Harvard University,
          Center for Research in Computing Technology, Aiken Computation
-         Laboratory (33 Oxford Street; Cambridge, MA 02138).</p>
-      <p>-- Steve applied his EACH program to predict survival (i.e., life
+         Laboratory (33 Oxford Street; Cambridge, MA 02138).
+         <p>Steve applied his EACH program to predict survival (i.e., life
          or death), did not use the wall-motion attribute, and recorded 87 
          correct and 29 incorrect in an incremental application to this
          database.  He also showed that, by tuning EACH to this domain,
          EACH was able to derive (non-incrementally) a set of 28 
          hyper-rectangles that could perfectly classify 119 instances.</p>
-   <p>-- 2. Kan, G., Visser, C., Kooler, J., & Dunning, A. (1986).  Short
+         </li>
+   <li>Kan, G., Visser, C., Kooler, J., & Dunning, A. (1986).  Short
          and long term predictive value of wall motion score in acute 
-         myocardial infarction.  British Heart Journal, 56, 422-427.</p>
-     <p>-- They predicted the same variable (whether patients will live
+         myocardial infarction.  British Heart Journal, 56, 422-427.
+         <p>They predicted the same variable (whether patients will live
          one year after a heart attack) using a different set of 345
          instances.  Their statistical test recorded a 61% accuracy
          in predicting that a patient will die (post-hoc fit).</p>
-   <p>-- 3. Elvin Kinney (in communication with Steven Salzberg) reported
+         </li>
+   <li>Elvin Kinney (in communication with Steven Salzberg) reported
          that a Cox regression application recorded a 60% accuracy
-         in predicting that a patient will die.</p>
+         in predicting that a patient will die.</li>
+         </ul>
 
 <h2>4. Relevant Information:</h2>
-  <p>-- All the patients suffered heart attacks at some point in the past.
+  <p>All the patients suffered heart attacks at some point in the past.
      Some are still alive and some are not.  The survival and still-alive
      variables, when taken together, indicate whether a patient survived
      for at least one year following the heart attack. </p> 
@@ -80,19 +84,4 @@
                      0 means patient was either dead after 1 year or had
                      been followed for less than 1 year.  1 means patient 
                      was alive at 1 year.</li>
-
-9. Distribution of attribute number 2: still-alive</p>
-   Value   Number of instances with this value</p>
-    ----   -----------------------------------</p>
-      0    88 (dead)</p>
-      1    43 (alive)</p>
-    Total  131</p>
-
-
-10. Distribution of attribute number 13: alive-at-1</p>
-   Value   Number of instances with this value</p>
-    ----   -----------------------------------</p>
-      0    107</p>
-      1    24</p>
-      ?    58</p>
-    Total  131</p>
+                     </ul>
