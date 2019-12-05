@@ -26,14 +26,17 @@ class DataframeService:
         self.df.plot(kind='scatter', x=Xaxis, y=Yaxis)
         fileName = "output/" + fileName
         plt.savefig(fileName)
+        plt.close()
 
     def makeHistogram(self, argument, fileName):
         self.df.hist(column=argument)
         fileName = "output/" + fileName
         plt.savefig(fileName)
+        plt.close()
 
     def makeBoxplot(self, argument, fileName):
         self.df.boxplot(argument)
         fileName = "output/" + fileName
         plt.savefig(fileName)
+        plt.close()
 
