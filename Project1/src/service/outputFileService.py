@@ -4,7 +4,8 @@ from Project1.src.service.dataframeService import DataframeService
 class OutputFileService:
     dataframeService = DataframeService("data/data.txt")
     documentName = "output/statistics.html"
-    head = "<!DOCTYPE=html>\n<html>\n<body>\n"
+    head = "<!DOCTYPE=html>\n<html>\n<head>\n<link rel='stylesheet'" \
+           " type='text/css' href='style.css'>\n</head>\n<body>\n"
     tail = "</body></html>"
 
     def resetDocument(self):
@@ -35,20 +36,34 @@ class OutputFileService:
         self.updateDocument(info)
 
     def addStats(self):
-        self.dataframeService.computeStats()
+        statsDf = self.dataframeService.computeStats()
         statsFile = open("output/stats.html")
         stats = statsFile.read()
         stats = "\n<h2>Basic information regarding given dataset</h2>" + stats
-        statsFile.close()
         self.updateDocument(stats)
+        self.addBarplot(statsDf, "barplot1.png", "mean", 1)
+        self.addBarplot(statsDf, "barplot2.png", "standard deviation", 2)
+        self.addBarplot(statsDf, "barplot3.png", "minimum value", 3)
+        self.addBarplot(statsDf, "barplot4.png", "maximum value", 7)
+        statsFile.close()
 
     def addCorrelations(self):
-        self.dataframeService.computeCorrelations()
+        corrs = self.dataframeService.computeCorrelations()
         corrFile = open("output/correlations.html")
         correlations = corrFile.read()
         correlations = "\n<h2>Correlations between parameters</h2>\n" + correlations
         corrFile.close()
         self.updateDocument(correlations)
+        self.addBarplot(corrs, "barplot5.png", "correlations of survival", 1)
+        self.addBarplot(corrs, "barplot6.png", "correlations of still_alive", 2)
+        self.addBarplot(corrs, "barplot7.png", "correlations of age_at_heart_attack", 3)
+        self.addBarplot(corrs, "barplot8.png", "correlations of pericardial_effusion", 4)
+        self.addBarplot(corrs, "barplot9.png", "correlations of fractional_shortening", 5)
+        self.addBarplot(corrs, "barplot10.png", "correlations of epss", 6)
+        self.addBarplot(corrs, "barplot11.png", "correlations of lvdd", 7)
+        self.addBarplot(corrs, "barplot12.png", "correlations of wall_motion_score", 8)
+        self.addBarplot(corrs, "barplot13.png", "correlations of wall_motion_index", 9)
+        self.addBarplot(corrs, "barplot14.png", "correlations of alive_at_1", 10)
 
     def addScatterplot(self, Xaxis, Yaxis, filename):
         self.dataframeService.makeScatterplot(Xaxis, Yaxis, filename)
@@ -64,6 +79,11 @@ class OutputFileService:
     def addBoxplot(self, argument, fileName):
         self.dataframeService.makeBoxplot(argument, fileName)
         plot = "<h2>Boxplot of variable " + argument + ":</h2>\n<img src='" + fileName + "'>"
+        self.updateDocument(plot)
+
+    def addBarplot(self, dataframe, fileName, argument, rowNum):
+        self.dataframeService.makeBarplot(dataframe, fileName, rowNum)
+        plot = "<h2>Barplot of " + argument + ":</h2>\n<img src='" + fileName + "'>"
         self.updateDocument(plot)
 
     def assembleDocument(self):
